@@ -12,6 +12,6 @@ class Produtos extends CI_Controller
         // Pega os dados do Model
         $data['produtos'] = $this->produtos->getProdutos();
 
-        $this->load->view('listarprodutos');
+        $this->load->view('listarprodutos', $data);
     }
 }
