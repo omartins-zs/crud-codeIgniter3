@@ -14,4 +14,14 @@ class Produtos extends CI_Controller
 
         $this->load->view('listarprodutos', $data);
     }
+
+    //Página de adicionar produto
+    public function add()
+    {
+        //Carrega o Model Produtos				
+        $this->load->model('produtos_model', 'produtos');
+
+        //Carrega a View
+        $this->load->view('addprodutos');
+    }
 }
