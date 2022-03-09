@@ -20,3 +20,13 @@ Criando estrutura inicial da tabela de produtos
 Testando chegada de Dados na view Listar Produtos 
 
 Configurando autoload para chamar Library database
+
+Criando Function para salvar no Banco de Dados novo produto
+
+
+
+Projeto Parado devido duivdas em URL e Direcionamentos ver com mais calma depois e e seguir 
+
+
+parado na aula:  Criando um CRUD em PHP com Codigniter e MySQL - Aula #2 Adicionar um registro
+
