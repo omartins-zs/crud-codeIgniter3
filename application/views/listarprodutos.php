@@ -38,7 +38,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="row">
             <h1>Lista de produtos</h1>
 
-            <a href="index.php/produtos/add" class="btn btn-success margin-button15">Novo Produto</a>
+            <a href="<?php base_url('Produtos/add') ?>" class="btn btn-success margin-button15">Novo Produto</a>
 
 
             <table class="table table-bordered">

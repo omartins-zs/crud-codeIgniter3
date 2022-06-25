@@ -20,7 +20,7 @@ class Produtos extends CI_Controller
     {
         //Carrega o Model Produtos				
         $this->load->model('produtos_model', 'produtos');
-
+        
         //Carrega a View
         $this->load->view('addprodutos');
     }
