@@ -42,8 +42,13 @@ class Produtos extends CI_Controller
             $dados['preco'] = $this->input->post('preco');
             $dados['ativo'] = $this->input->post('ativo');
 
-            //Executa a função do produtos_model adicionar
-            $this->produtos->addProduto($dados);
+            if ($this->input->post('id') != NULL) {
+                // Se foi passado ele vai fazer a atualizaçao no registro.
+                $query = $this->editarProduto($dados, $this->input->post('id'));
+            } else {
+                // Executa a função do produtos_model adicionar
+                $this->produtos->addProduto($dados);
+            }
 
             //Fazemos um redicionamento para a página 		
             redirect("/");
@@ -73,6 +78,6 @@ class Produtos extends CI_Controller
         $dados['produto'] = $query;
 
         // Carrega a view
-        $this->load->view('editarProdutos', $dados);
+        $this->load->view('editarprodutos', $dados);
     }
 }
