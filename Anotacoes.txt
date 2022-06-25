@@ -1,32 +1,17 @@
-Criando um CRUD em PHP com Codigniter e MySQL
+Criando um CRUD em PHP com Codigniter e MySQL : https://www.youtube.com/playlist?list=PL1jNcWbZ6ll87rYJabmFTxaOu-lLo5U-q
 
 Codeigniter 3.1.13 a certa e 3.0.4
 
-
 Bootstrap 3.4.1 https://getbootstrap.com/docs/3.4/
 
-Alterando versao do bootstrap para usar icones
-
-CREATE TABLE `produtos-hardware`.`produtos` ( `id` INT NULL AUTO_INCREMENT , `nome` VARCHAR(200) NOT NULL , `preco` INT NOT NULL , `ativo` VARCHAR NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
-INSERT INTO `produtos` (`id`, `nome`, `preco`, `ativo`) VALUES (NULL, 'Placa Mae Gigabyte', '750', '1'), (NULL, 'Placa de Video Asus', '3.500', '1');
 
 
-Carregando Model de produtos no Controller
 
-Iniciando Criação de Projeto com CodeIgniter 3
-Configurando ligação com banco de dados
-Criando estrutura inicial da tabela de produtos
+Fazer:
 
-Testando chegada de Dados na view Listar Produtos 
-
-Configurando autoload para chamar Library database
 
 Criando Function para salvar no Banco de Dados novo produto
 
-
-
 Projeto Parado devido duivdas em URL e Direcionamentos ver com mais calma depois e e seguir 
 
-
 parado na aula:  Criando um CRUD em PHP com Codigniter e MySQL - Aula #2 Adicionar um registro
-
