@@ -39,7 +39,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </ol>
 
             <!-- Formulário de novo cadastro  -->
-            <form action="index.php/produtos/salvar" name="form_add" method="post">
+            <form action="/produtos/salvar" name="form_add" method="post">
 
                 <!-- Input text nome do produtos -->
                 <div class="row">
