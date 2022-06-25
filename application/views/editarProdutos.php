@@ -28,6 +28,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <body>
 
+    <!-- Teste para ver se esta chegando dados -->
+    <?php
+    echo '<pre>';
+    print_r($produto);
+    echo '</pre>';
+    ?>
+
     <div class="container">
 
         <div class="row">
@@ -45,7 +52,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <div class="row">
                     <div class="col-md-8">
                         <label>Nome</label>
-                        <input type="text" name="nome" value="" class="form-control">
+                        <input type="text" name="nome" value="<?php echo $produto->nome ?>" class="form-control">
                     </div>
                 </div> <!-- fim input text nome produtos -->
 
@@ -53,7 +60,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <div class="row">
                     <div class="col-md-8">
                         <label>Preço</label>
-                        <input type="text" name="preco" value="" class="form-control">
+                        <input type="text" name="preco" value="<?php echo $produto->preco ?>" class="form-control">
                     </div>
                 </div><!-- fim input text preco produtos -->
 
@@ -62,8 +69,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <div class="col-md-2">
                         <label>Ativo</label>
                         <select name="ativo" class="form-control">
-                            <option value="1">Sim</option>
-                            <option value="0">Não</option>
+                            <option value="1" <?php echo ($produto->ativo == 1 ? ' selected="' : '') ?>>Sim</option>
+                            <option value="0" <?php echo ($produto->ativo == 0 ? ' selected="' : '') ?>>Nao</option>
                         </select>
                     </div>
                 </div><!-- fim select produtos ativo ou inativo -->
@@ -72,6 +79,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <br />
                 <div class="row">
                     <div class="col-md-2">
+                        <input type="hidden" name="id" value="<?php echo $produto->id ?>">
+
                         <button type="submit" class="btn btn-primary">Cadastrar</button>
                     </div>
                 </div><!-- fim do button submit(enviar) formulário -->
