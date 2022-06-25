@@ -20,7 +20,7 @@ class Produtos extends CI_Controller
     {
         //Carrega o Model Produtos				
         $this->load->model('produtos_model', 'produtos');
-        
+
         //Carrega a View
         $this->load->view('addprodutos');
     }
@@ -48,5 +48,31 @@ class Produtos extends CI_Controller
             //Fazemos um redicionamento para a página 		
             redirect("/");
         }
+    }
+
+    //Função salvar no DB
+    public function editar($id = NULL)
+    {
+        // Verifica se foi passado um ID, se não vai para a página listar produtos
+        if ($id == NULL) {
+            redirect('/');
+        }
+
+        //Carrega o Model Produtos				
+        $this->load->model('produtos_model', 'produtos');
+
+        // Faz a consulta no banco de dados pra verificar se existe
+        $query = $this->produtos->getProdutoById($id);
+
+        // Verifica que a a consulta voltar um registro, se nao vai para a pagina listar produtos
+        if ($query == NULL) {
+            redirect('/');
+        }
+
+        // Criamos um array onde vai guardar os dados do produtos e passamos como parametro para view
+        $dados['produto'] = $query;
+
+        // Carrega a view
+        $this->load->view('editarProdutos', $dados);
     }
 }
