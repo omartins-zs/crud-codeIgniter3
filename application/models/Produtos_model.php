@@ -16,4 +16,15 @@ class Produtos_model extends CI_Model
             $this->db->insert('produtos', $dados);
         endif;
     }
+    
+    // Get produtos by id
+    public function getProdutoById($id = NULL)
+    {
+        if ($id != NULL) :
+            $this->db->where('id', $id);
+            $this->db->limit(1);
+            $query = $this->db->get("produtos");
+            return $query->row();
+        endif;
+    }
 }
