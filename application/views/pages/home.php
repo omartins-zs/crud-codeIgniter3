@@ -35,7 +35,7 @@
                 <th class="text-center">ID</th>
                 <th class="text-center">Produto</th>
                 <th class="text-center">Preço</th>
-                <th class="text-center">Ativo</th>
+                <th class="text-center">Status</th>
                 <th class="text-center">Açoes</th>
             </tr>
         </thead>
@@ -43,11 +43,19 @@
         <tbody>
             <?php foreach ($produtos as $produto) : ?>
                 <tr>
-                    <td><?= $produto['id'] ?></td>
+                    <td class="text-center"><?= $produto['id'] ?></td>
                     <td><?= $produto['nome'] ?></td>
                     <td><?= $produto['preco'] ?></td>
-                    <td><?= $produto['ativo'] ?></td>
-                    <td>
+                    <!-- Verifica o status do Produto -->
+                    <td class="text-center"><?php if ($produto['ativo'] == 1) : ?>
+                            <!-- Se tiver == 1 está ATIVO -->
+                            <a class="badge badge-success" href="<?php base_url() ?>produtos/status/<?= $produto['id'] ?>" title="Deixar inativo">Ativo</a>
+                        <?php else :  ?>
+                            <!-- Se tiver == 0 está INATTIVO -->
+                            <a class="badge badge-warning" href="<?php base_url() ?>produtos/status/<?= $produto['id'] ?>" title="Deixar ativo">Inativo</a>
+                        <?php endif; ?>
+                    </td>
+                    <td class="text-center">
                         <a href="<?php base_url() ?>produtos/editar/<?= $produto['id'] ?>" title="Detalhes" class="btn btn-sm btn-warning"><i class="fas fa-pencil"></i></a>
 
                         <a href="<?= base_url() ?>produtos/apagar/<?= $produto['id'] ?>" title="Apagar cadastro" class="btn btn-sm btn-danger"> <i class="fas fa-trash-alt"></i></a>

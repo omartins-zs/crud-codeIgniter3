@@ -19,7 +19,7 @@ class Produtos extends MY_Controller
         $dados['produtos'] = $this->Produtos_model->getProdutos();
         $dados['total'] = $this->Produtos_model->totalRegistros();
 
-                // Passa o conjunto de Variaveis para as views
+        // Passa o conjunto de Variaveis para as views
         $this->load->vars($dados);
 
         $this->load->view('templates/header');
@@ -110,6 +110,36 @@ class Produtos extends MY_Controller
         if ($query != null) {
             // Executa a função apagarProdutos no Model
             $this->produtos->apagarProdutos($query->id);
+            redirect(base_url());
+        } else {
+            // Se não encontrou nenhum resgistro no BD com a ID passada ele volta para a Pagina Home
+            redirect(base_url());
+        }
+    }
+
+    // Function mudar status do Produto
+    public function status($id = NULL)
+    {
+        // Verifica se foi passado um ID, se nao vai para a pagina Home
+        if ($id == null) {
+            redirect(base_url());
+        }
+
+        // Faz a consulta no banco de dados pra verificar se existe
+        $query = $this->produtos->getProdutoByID($id);
+
+        // Verifica se foi encontrado um registro com a ID passada
+        if ($query != null) {
+
+            // Verifica se o produto esta ativo ou inativo para poder mudar o status do mesmo
+            if ($query->ativo == 1) {
+                $dados['ativo'] = 0;
+            } else {
+                $dados['ativo'] = 1;
+            }
+
+            // Executa a function statusProduto no Model
+            $this->produtos->statusProduto($dados, $query->id);
             redirect(base_url());
         } else {
             // Se não encontrou nenhum resgistro no BD com a ID passada ele volta para a Pagina Home

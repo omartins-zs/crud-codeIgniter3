@@ -63,4 +63,14 @@ class Produtos_model extends CI_Model
             $this->db->delete('produtos', array('id' => $id));
         }
     }
+
+    // Muda o status do produto na tabela de Produtos no BD
+    public function statusProduto($status = NULL, $id = NULL)
+    {
+        // Verificaremos se foi passado o STATUS e o ID como parametro
+        if ($status != NULL) :
+            // Executa a funçao DB Update para mudar o status do produto
+            $this->db->update('produtos', $status, array('id' => $id));
+        endif;
+    }
 }
