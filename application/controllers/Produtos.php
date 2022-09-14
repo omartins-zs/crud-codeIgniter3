@@ -19,23 +19,25 @@ class Produtos extends MY_Controller
         $dados['produtos'] = $this->Produtos_model->getProdutos();
         $dados['total'] = $this->Produtos_model->totalRegistros();
 
+                // Passa o conjunto de Variaveis para as views
         $this->load->vars($dados);
 
-        $this->load->view('templates/header', $dados);
-        $this->load->view('pages/home', $dados);
+        $this->load->view('templates/header');
+        $this->load->view('pages/home');
     }
 
     //Página de adicionar produto
     public function add()
     {
-        //Carrega o Model Produtos				
-        $this->load->model('produtos_model', 'produtos');
+        $dados["titulo"] = "Novo produto";
 
-
-        $dados["titulo"] = "Novo cadastro";
+        // Passa o conjunto de Variaveis para as views
+        $this->load->vars($dados);
 
         //Carrega a View
-        $this->load->view('addprodutos');
+        $this->load->view('templates/header', $dados);
+
+        $this->load->view('pages/addprodutos', $dados);
     }
 
     //Função salvar no DB
@@ -73,7 +75,7 @@ class Produtos extends MY_Controller
             echo 'O compo nome do produto é obrigatório.';
             echo '<a href="/produtos/add" title="voltar">Voltar</a>';
         } else {
-           
+
             //Pega dados do post e guarda na array $dados
             $dados['nome'] = $this->input->post('nome');
             $dados['preco'] = $this->input->post('preco');
@@ -90,6 +92,28 @@ class Produtos extends MY_Controller
 
             //Fazemos um redicionamento para a página 		
             redirect("/");
+        }
+    }
+
+    // Função apagar registro
+    public function apagar($id = NULL)
+    {
+        // Verifica se foi passado um ID, se nao vai para a pagina Listar Produtos(Home)
+        if ($id == null) {
+            redirect(base_url());
+        }
+
+        // Faz a consulta no banco de dados pra verificar se existe
+        $query = $this->produtos->getProdutoByID($id);
+
+        // Verifica se foi encontrado um registro com a ID passada
+        if ($query != null) {
+            // Executa a função apagarProdutos no Model
+            $this->produtos->apagarProdutos($query->id);
+            redirect(base_url());
+        } else {
+            // Se não encontrou nenhum resgistro no BD com a ID passada ele volta para a Pagina Home
+            redirect(base_url());
         }
     }
 }

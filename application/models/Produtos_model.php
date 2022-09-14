@@ -53,4 +53,14 @@ class Produtos_model extends CI_Model
 
         return $totalRegistros;
     }
+
+    // Apaga um produto na tabela de Produtos no BD
+    public function apagarProdutos($id = NULL)
+    {
+        // Verificaremos se foi passado o ID como parametro
+        if ($id != NULL) {
+            // Executa a funçao DB Delete para apagar o produto
+            $this->db->delete('produtos', array('id' => $id));
+        }
+    }
 }
