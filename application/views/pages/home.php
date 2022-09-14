@@ -56,11 +56,11 @@
                         <?php endif; ?>
                     </td>
                     <td class="text-center">
-                        <a href="<?php base_url() ?>produtos/editar/<?= $produto['id'] ?>" title="Detalhes" class="btn btn-sm btn-warning"><i class="fas fa-pencil"></i></a>
+                        <a href="<?php base_url() ?>produtos/editar/<?= $produto['id'] ?>" title="editar produto" class="btn btn-sm btn-warning"><i class="fas fa-pencil"></i></a>
 
                         <a href="<?= base_url() ?>produtos/apagar/<?= $produto['id'] ?>" title="Apagar cadastro" class="btn btn-sm btn-danger"> <i class="fas fa-trash-alt"></i></a>
 
-                        <a href="<?php base_url() ?>produtos/detalhes/<?= $produto['nome'] ?>" title="Detalhes" class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
+                        <a href="<?php base_url() ?>produtos/detalhes/<?= $produto['nome'] ?>" title="Detalhes do produto" class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
                     </td>
                 </tr>
             <?php endforeach ?>

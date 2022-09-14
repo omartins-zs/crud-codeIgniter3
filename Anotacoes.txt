@@ -16,6 +16,16 @@ Projeto Parado devido duivdas em URL e Direcionamentos ver com mais calma depois
 
 parado na aula:  Criando um CRUD em PHP com Codigniter e MySQL - Aula #2 Adicionar um registro
 
+Descriptografia MD5:https://www.md5online.org/md5-decrypt.html
 
+https://mdbootstrap.com/docs/standard/navigation/navbar/ MDBOOTSTRAP
+
+https://worldvectorlogo.com/ World Vector Logos
+
+https://codeigniter.com/userguide3/database/index.html  CodeIginter 3 Database Reference
+
+https://devdocs.io/codeigniter~3/general/views DevDocs.io
+
+ De
 // redirect('<?= base_url() ?>');
 Melhorando estrutura de pasta do projeto com Templates
