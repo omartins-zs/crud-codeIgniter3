@@ -1,11 +1,10 @@
-Criando um CRUD em PHP com Codigniter e MySQL : https://www.youtube.com/playlist?list=PL1jNcWbZ6ll87rYJabmFTxaOu-lLo5U-q
-
-Codeigniter 3.1.13 a certa e 3.0.4
-
-Bootstrap 3.4.1 https://getbootstrap.com/docs/3.4/
+Criando um CRUD em PHP com Codeigniter3 e MySQL : https://www.youtube.com/playlist?list=PL1jNcWbZ6ll87rYJabmFTxaOu-lLo5U-q
 
 
+Bootstrap 4.6 https://getbootstrap.com/docs/4.6/getting-started/introduction/
 
+
+Documentacao php [PHP NET] https://www.php.net/manual/pt_BR/language.operators.php
 
 Fazer:
 
@@ -25,6 +24,10 @@ https://worldvectorlogo.com/ World Vector Logos
 https://codeigniter.com/userguide3/database/index.html  CodeIginter 3 Database Reference
 
 https://devdocs.io/codeigniter~3/general/views DevDocs.io
+
+
+
+
 
  De
 // redirect('<?= base_url() ?>');

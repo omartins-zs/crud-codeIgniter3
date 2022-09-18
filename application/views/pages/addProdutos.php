@@ -1,13 +1,3 @@
-<!-- Just an image -->
-<nav class="navbar navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="<?= base_url() ?>assets/img/codeigniter.svg ?>" height="20" alt="MDB Logo" loading="lazy" />
-            <small>Crud CodeIgniter 3</small>
-        </a>
-    </div>
-</nav>
-
 <div class="container" class="home">
 
     <div class="row">
@@ -62,13 +52,11 @@
 
             <!-- Button submit(enviar) formulário -->
             <br />
-            <div class="row">
-                <div class="col-md-2">
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <div class="d-flex justify-content-between mr-3">
+                    <button type="submit" class="btn btn-sm btn-success mr-3">Cadastrar <i class="fa-solid fa-plus"></i></button>
+
+                    <a href="<?= base_url() ?>" class="btn btn-primary btn-sm" style="">Voltar <i class="fas fa-arrow-circle-left"></i> </a>
                 </div>
-            </div><!-- fim do button submit(enviar) formulário -->
-
-
         </form>
         <!--Fim formulário de novo cadastro  -->
 

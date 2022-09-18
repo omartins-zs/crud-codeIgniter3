@@ -9,16 +9,7 @@
 // exit;
 ?>
 
-<!-- Just an image -->
-<nav class="navbar navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="<?= base_url() ?>assets/img/codeigniter.svg ?>" height="20" alt="MDB Logo" loading="lazy" />
-            <small>Crud CodeIgniter 3</small>
 
-        </a>
-    </div>
-</nav>
 <div class="container" class="home">
 
     <div class="row">
@@ -60,7 +51,7 @@
 
                         <a href="<?= base_url() ?>produtos/apagar/<?= $produto['id'] ?>" title="Apagar cadastro" class="btn btn-sm btn-danger"> <i class="fas fa-trash-alt"></i></a>
 
-                        <a href="<?php base_url() ?>produtos/detalhes/<?= $produto['nome'] ?>" title="Detalhes do produto" class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
+                        <a href="<?php base_url() ?>produtos/detalhes/<?= $produto['id'] ?>" title="Detalhes do produto" class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
                     </td>
                 </tr>
             <?php endforeach ?>
