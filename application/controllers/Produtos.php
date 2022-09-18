@@ -74,10 +74,9 @@ class Produtos extends MY_Controller
     {
         //Verifica se foi passado o campo nome vazio.
         if ($this->input->post('nome') == NULL) {
-            echo 'O compo nome do produto é obrigatório.';
-            echo '<a href="/produtos/add" title="voltar">Voltar</a>';
+            $this->session->set_flashdata("danger", "O campo nome do produto é obrigatório.");
+            redirect("produtos/add");
         } else {
-
             //Pega dados do post e guarda na array $dados
             $dados['nome'] = $this->input->post('nome');
             $dados['preco'] = $this->input->post('preco');
