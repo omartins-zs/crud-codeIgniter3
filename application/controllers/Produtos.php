@@ -23,6 +23,7 @@ class Produtos extends MY_Controller
         $this->load->vars($dados);
 
         $this->load->view('templates/header');
+        $this->load->view('templates/nav-top');
         $this->load->view('pages/home');
     }
 
@@ -36,7 +37,7 @@ class Produtos extends MY_Controller
 
         //Carrega a View
         $this->load->view('templates/header', $dados);
-
+        $this->load->view('templates/nav-top');
         $this->load->view('pages/addprodutos', $dados);
     }
 
@@ -64,6 +65,7 @@ class Produtos extends MY_Controller
 
         // Carrega a view
         $this->load->view('templates/header', $dados);
+        $this->load->view('templates/nav-top');
         $this->load->view('pages/editarprodutos', $dados);
     }
 
@@ -145,5 +147,33 @@ class Produtos extends MY_Controller
             // Se não encontrou nenhum resgistro no BD com a ID passada ele volta para a Pagina Home
             redirect(base_url());
         }
+    }
+
+    //Função salvar no DB
+    public function detalhes($id = NULL)
+    {
+        // Verifica se foi passado um ID, se não vai para a página listar produtos
+        if ($id == NULL) {
+            redirect(base_url());
+        }
+
+        // Faz a consulta no banco de dados pra verificar se existe
+        $query = $this->produtos->getProdutoById($id);
+
+        // Verifica que a a consulta voltar um registro, se nao vai para a pagina listar produtos
+        if ($query == NULL) {
+            redirect('/');
+        }
+
+        // Criamos um array onde vai guardar os dados do produtos e passamos como parametro para view
+        $dados['produto'] = $query;
+
+        // Titulo da Guia no navegador
+        $dados["titulo"] = "Detalhes do Produto";
+
+        // Carrega a view
+        $this->load->view('templates/header', $dados);
+        $this->load->view('templates/nav-top');
+        $this->load->view('pages/detailsProdutos', $dados);
     }
 }
