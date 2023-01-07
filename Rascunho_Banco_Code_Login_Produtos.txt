@@ -1,0 +1,22 @@
+***Projeto Lucas Genari***
+Link: https://www.youtube.com/playlist?list=PLgG1YagpzTzywXZs4tKPK5SGIX8VoNWFc
+
+Nome do Banco de Dados:code_login_produtos 
+
+
+create table usuarios (id integer auto_increment primary key, nome varchar(255), email varchar(255), senha varchar(255));
+
+create table produtos (id integer auto_increment primary key, nome varchar(255), descricao text, preco decimal(10,2), usuario_id integer);
+
+insert into usuarios values (1, 'Joao do joao', 'joao@joao.com', '123');
+
+insert into produtos values (1, 'Monitor', 'Monitor Full Hd Led', 1050, 1);
+insert into produtos values (2, 'Mouse', 'Mouse Logitech', 240, 1); 
+insert into produtos values (3, 'Headset', 'Headset Logitech', 300, 1); 
+insert into produtos values (4, 'Teclado', 'Teclado Logitech', 500, 1); 
+insert into produtos values (5, 'Mouse Pad', 'Mouse Pad Logitech', 100, 1); 
+insert into produtos values (6, 'Roteador', 'Roteador TP Link', 85, 1); 
+insert into produtos values (7, "Celular", 'Celular Top', 1700, 1);
+insert into produtos values (8, "Mochila", 'Mochila Para Notebook', 200, 1);
+
+create table usuario (usuario_id integer auto_increment primary key, usuario varchar(200), senha VARCHAR(32));
