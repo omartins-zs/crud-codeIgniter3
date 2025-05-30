@@ -118,35 +118,32 @@ class Produtos extends MY_Controller
         }
     }
 
-    // Function mudar status do Produto
-    public function status($id = NULL)
-    {
-        // Verifica se foi passado um ID, se nao vai para a pagina Home
-        if ($id == null) {
-            redirect(base_url());
-        }
+    // Função para mudar o status do produto
+	public function status($id = null)
+	{
+		// Verifica se foi passado um ID, se não, redireciona para a página inicial
+		if ($id === null) {
+			redirect(base_url(), 'refresh');
+		}
 
-        // Faz a consulta no banco de dados pra verificar se existe
-        $query = $this->produtos->getProdutoByID($id);
+		// Busca o produto no banco de dados pelo ID
+		$produto = $this->produtos->getProdutoByID($id);
 
-        // Verifica se foi encontrado um registro com a ID passada
-        if ($query != null) {
+		// Verifica se o produto foi encontrado
+		if ($produto !== null) {
+			// Alterna o status do produto
+			$dados['ativo'] = ($produto->ativo == 1) ? 0 : 1;
 
-            // Verifica se o produto esta ativo ou inativo para poder mudar o status do mesmo
-            if ($query->ativo == 1) {
-                $dados['ativo'] = 0;
-            } else {
-                $dados['ativo'] = 1;
-            }
+			// Atualiza o status do produto no banco
+			$this->produtos->statusProduto($dados, $produto->id);
 
-            // Executa a function statusProduto no Model
-            $this->produtos->statusProduto($dados, $query->id);
-            redirect(base_url());
-        } else {
-            // Se não encontrou nenhum resgistro no BD com a ID passada ele volta para a Pagina Home
-            redirect(base_url());
-        }
-    }
+			// Redireciona de volta para a página inicial
+			redirect(base_url(), 'refresh');
+		} else {
+			// Produto não encontrado, redireciona para a página inicial
+			redirect(base_url(), 'refresh');
+		}
+	}
 
     //Função salvar no DB
     public function detalhes($id = NULL)
