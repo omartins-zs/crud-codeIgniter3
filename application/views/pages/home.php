@@ -1,9 +1,9 @@
 <?php
 // echo '<pre>';
 // print_r($produtos);
-// // print_r($dataContato);
-// // print_r($contatos);
-// // var_dump($deputados['ULTIMA_CONVERSA']);
+// print_r($dataContato);
+// print_r($contatos);
+// var_dump($deputados['ULTIMA_CONVERSA']);
 // echo '</pre>';
 
 // exit;
@@ -40,14 +40,14 @@
                     <!-- Verifica o status do Produto -->
                     <td class="text-center"><?php if ($produto['ativo'] == 1) : ?>
                             <!-- Se tiver == 1 está ATIVO -->
-                            <a class="badge badge-success" href="<?php base_url() ?>produtos/status/<?= $produto['id'] ?>" title="Deixar inativo">Ativo</a>
+							<a class="badge badge-success" href="<?= base_url('produtos/status/' . $produto['id']) ?>" title="Deixar inativo">Ativo</a>
                         <?php else :  ?>
                             <!-- Se tiver == 0 está INATTIVO -->
-                            <a class="badge badge-warning" href="<?php base_url() ?>produtos/status/<?= $produto['id'] ?>" title="Deixar ativo">Inativo</a>
+                            <a class="badge badge-warning"  href="<?= base_url('produtos/status/' . $produto['id']) ?>" title="Deixar ativo">Inativo</a>
                         <?php endif; ?>
                     </td>
                     <td class="text-center">
-                        <a href="<?php base_url() ?>produtos/editar/<?= $produto['id'] ?>" title="editar produto" class="btn btn-sm btn-warning"><i class="fas fa-pencil"></i></a>
+                        <a href="<?php base_url() ?>produtos/editar/<?= $produto['id'] ?>" title="editar produto" class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt"></i></a>
 
                         <a href="<?= base_url() ?>produtos/apagar/<?= $produto['id'] ?>" title="Apagar cadastro" class="btn btn-sm btn-danger"> <i class="fas fa-trash-alt"></i></a>
 
